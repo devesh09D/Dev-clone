@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevsRec Club</title>
+    <link rel="stylesheet" href="skeleton.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#events">Events</a></li>
+                <li><a href="#team">Team</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <h1 class="hero-title">Welcome to <span class="highlight">DevsRec Club</span></h1>
+        <p class="hero-text">Connecting Developers, Innovating Together</p>
+        <div class="dots-container">
+            <div class="dot" data-dot="Founder: Swayam"></div>
+            <div class="dot" data-dot="About the Club: A community of developers."></div>
+            <div class="dot" data-dot="Join us for collaboration and growth!"></div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about" data-aos="fade-up" data-aos-duration="1000">
+        <h2 class="section-title">About DevsRec Club</h2>
+        <p>DevsRec Club is a community of developers and tech enthusiasts dedicated to growth and learning. Join us to collaborate, share knowledge, and grow together!</p>
+    </section>
+
+   <!-- Events Section -->
+<section id="events" class="events">
+    <h2 class="section-title popUpText">Our Events</h2>
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <!-- Event 1 -->
+            <div class="swiper-slide event-card popUpText" data-aos="zoom-in" data-aos-duration="100">
+                <img src="C:\Users\DEVESH\OneDrive\Desktop\devs\img1.jpg" alt="Event 1">
+                <h3>Hackathon 2024</h3>
+                <p>Join us for a 24-hour hackathon to build exciting projects.</p>
+                <a href="#">Learn More</a>
+            </div>
+            <!-- Event 2 -->
+            <div class="swiper-slide event-card popUpText" data-aos="zoom-in" data-aos-duration="100">
+                <img src="C:\Users\DEVESH\OneDrive\Desktop\devs\img2.jpg" alt="Event 2">
+                <h3>Web Dev Workshop</h3>
+                <p>Learn web development basics with hands-on practice.</p>
+                <a href="#">Learn More</a>
+            </div>
+            <!-- Event 3 -->
+            <div class="swiper-slide event-card popUpText" data-aos="zoom-in" data-aos-duration="100">
+                <img src="C:\Users\DEVESH\OneDrive\Desktop\devs\img3.jpg" alt="Event 3">
+                <h3>Design Sprint</h3>
+                <p>Collaborate with designers and developers to create new ideas.</p>
+                <a href="#">Learn More</a>
+            </div>
+        </div>
+        <!-- Swiper Pagination -->
+        <div class="swiper-pagination"></div>
+    </div>
+</section>
+
+
+    <!-- Team Section -->
+    <section id="team" class="team">
+        <h2 class="section-title">Meet the Team</h2>
+        <div class="team-grid">
+            <div class="Swayam" data-aos="fade-up" data-aos-duration="1000">
+                <img src="C:\Users\DEVESH\OneDrive\Desktop\devs\s.jpg" alt="Member 1">
+                <p>Swayam</p>
+            </div>
+            <div class="Hursun" data-aos="fade-up" data-aos-duration="1000">
+                <img src="C:\Users\DEVESH\OneDrive\Desktop\devs\h.jpg" alt="Member 2">
+                <p>hursun</p>
+            </div>
+            <div class="Mano" data-aos="fade-up" data-aos-duration="1000">
+                <img src="C:\Users\DEVESH\OneDrive\Desktop\devs\mano.jpg" alt="Member 3">
+                <p>mano</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact" data-aos="fade-up" data-aos-duration="1000">
+        <h2 class="section-title">Get in Touch</h2>
+        <form>
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea placeholder="Your Message" required></textarea>
+            <button type="submit">Send</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>Follow us on:</p>
+        <div class="social-links">
+            <a href="#">Facebook</a> | <a href="#">Twitter</a> | <a href="#">Instagram</a>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init(); // Initialize AOS
+        const swiper = new Swiper('.swiper-container', {
+            loop: true,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+        });
+        
+        // Dot Hover Effect
+        const dots = document.querySelectorAll('.dot');
+        dots.forEach(dot => {
+            dot.innerText = '';
+            dot.style.width = '30px';
+            dot.style.height = '30px';
+            dot.style.borderRadius = '50%';
+            dot.style.backgroundColor = '#333';
+            dot.style.display = 'inline-block';
+            dot.style.margin = '0 10px';
+            dot.style.transition = 'background-color 0.3s';
+            dot.onmouseover = () => {
+                dot.style.backgroundColor = '#ffcc00';
+                const text = dot.getAttribute('data-dot');
+                const tooltip = document.createElement('span');
+                tooltip.innerText = text;
+                tooltip.className = 'tooltip';
+                dot.appendChild(tooltip);
+            };
+            dot.onmouseout = () => {
+                dot.style.backgroundColor = '#333';
+                const tooltip = dot.querySelector('.tooltip');
+                if (tooltip) tooltip.remove();
+            };
+        });
+    </script>
+</body>
+</html>

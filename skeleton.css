@@ -1,0 +1,310 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #121212; /* Dark background */
+    color: #FFFFFF; /* White text */
+    overflow-x: hidden;
+}
+
+/* Navigation */
+header {
+    background: #333333; /* Dark gray */
+    color: white;
+    padding: 1rem;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: background 0.3s ease-in-out;
+}
+
+header:hover {
+    background: #444444; /* Slightly darker gray */
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 1rem;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #FFCC00; /* Yellow hover effect */
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    background: linear-gradient(rgba(64, 7, 238, 0.5), rgba(165, 171, 165, 0.5)), url('hero-bg.jpg') no-repeat center center/cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+}
+
+.hero-title {
+    font-size: 3rem;
+    animation: jump 1s ease infinite;
+}
+
+.highlight {
+    color: #FFCC00; /* Yellow highlight */
+}
+
+@keyframes jump {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Dot Container */
+.dots-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.dot {
+    cursor: pointer;
+    position: relative;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #333333; /* Dark gray */
+    margin: 0 10px;
+    transition: background-color 0.3s;
+}
+
+/* Section Styling */
+section {
+    padding: 3rem;
+    text-align: center;
+    color: #333333; /* Dark text for sections */
+}
+
+.section-title {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    transition: transform 0.5s ease;
+}
+
+.section-title:hover {
+    transform: scale(1.1);
+}
+
+/* Events Section Carousel Styling */
+.events {
+    background: #1E1E1E; /* Dark gray */
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.swiper-container {
+    width: 100%;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.swiper-slide {
+    background: #333333; /* Dark gray */
+    color: #FFFFFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+}
+
+/* Event Card Styling */
+.event-card {
+    background-color: #1E1E1E; /* Dark gray */
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(251, 5, 5, 0.3);
+    overflow: hidden;
+    width: 100%;
+    max-width: 300px;
+    text-align: center;
+    color: white;
+    opacity: 0;
+    transform: scale(0.8);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    cursor: pointer;
+    animation: popUp 1s ease-out forwards;
+}
+
+.event-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    animation: slideImage 5s infinite linear;
+}
+
+@keyframes slideImage {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+}
+
+@keyframes popUp {
+    0% { opacity: 0; transform: scale(0.5); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+.event-card:hover {
+    transform: scale(1.05);
+    opacity: 0;
+    box-shadow: 0 6px 10px rgba(240, 8, 8, 0.5);
+}
+
+.event-card:hover img {
+    transform: scale(1.1);
+}
+
+.event-card h3 {
+    font-size: 1.5rem;
+    color: #1E90FF; /* Dodger blue for titles */
+}
+
+.event-card p {
+    font-size: 1rem;
+    color: #FFFFFF;
+}
+
+.event-card a {
+    color: #32CD32; /* Lime green for links */
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px;
+    border: 2px solid #32CD32;
+    border-radius: 5px;
+    margin-top: 10px;
+    display: inline-block;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.event-card a:hover {
+    background-color: #cd32b3;
+    color: white;
+}
+
+/* Swiper Pagination */
+.swiper-pagination {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+}
+
+.swiper-pagination-bullet {
+    background-color: #1E90FF;
+    width: 12px;
+    height: 12px;
+    opacity: 0.7;
+}
+
+.swiper-pagination-bullet-active {
+    background-color: #32CD32;
+    opacity: 1;
+}
+
+/* Team Section */
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+.team-member {
+    transition: transform 0.3s;
+}
+
+.team-member:hover {
+    transform: scale(1.05);
+}
+
+
+    
+.team-member img {
+    width: 50px; /* Set the width to 50px */
+    height: auto; /* Maintain the aspect ratio of the image */
+    border-radius: 10px; /* Optional: to round the corners of the image */
+    object-fit: cover; /* Optional: to make sure the image covers the area without stretching */
+}
+
+
+/* Contact Form */
+.contact form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contact input,
+.contact textarea {
+    width: 80%;
+    padding: 1rem;
+    margin: 0.5rem 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.contact button {
+    background-color: #333333; /* Dark gray */
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.contact button:hover {
+    background-color: #FFCC00; /* Yellow hover effect */
+}
+
+/* Footer */
+footer {
+    background: #333333; /* Dark gray */
+    color: white;
+    text-align: center;
+    padding: 1rem 0;
+}
+
+.social-links {
+    margin-top: 0.5rem;
+}
+
+footer a {
+    color: #B0B0B0; /* Light gray */
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: #FFCC00; /* Yellow hover effect */
+}
+
+/* Smooth Scroll for Navigation Links */
+html {
+    scroll-behavior: smooth;
+}
+.swiper-wrapper{
+    justify-content: center;
+}
